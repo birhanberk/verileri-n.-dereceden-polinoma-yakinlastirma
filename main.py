@@ -1,13 +1,13 @@
 # Birhan Berk Oktay - 170401075
 
-# Bu Python kodu birdenAltinciDereceyeKadar isimli fonksiyonun çağırılmasıyla
-# parametre olarak verilen dosyadaki verilerin tamamını ve her 10 lu veri grubu
-# için 1,2,3,4,5 ve 6. dereceden polinoma yakınlaştırarak bu polinomların katsayı
-# değerlerini, hata değerlerini ve en uygun polinomları sonuc.txt dosyasına yazar.
+# Bu Python kodu birdenAltinciDereceyeKadar isimli fonksiyonun Ã§aÄŸÄ±rÄ±lmasÄ±yla
+# parametre olarak verilen dosyadaki verilerin tamamÄ±nÄ± ve her 10 lu veri grubu
+# iÃ§in 1,2,3,4,5 ve 6. dereceden polinoma yakÄ±nlaÅŸtÄ±rarak bu polinomlarÄ±n katsayÄ±
+# deÄŸerlerini, hata deÄŸerlerini ve en uygun polinomlarÄ± sonuc.txt dosyasÄ±na yazar.
 
 
 def matristenDiziye(m):
-  # Matrisi diziye çeviren fonksiyon
+  # Matrisi diziye Ã§eviren fonksiyon
   # matris[[a],[b]] --> dizi[a,b]
   dizi = []
   for i in m:
@@ -15,7 +15,7 @@ def matristenDiziye(m):
   return dizi
 
 def matrisCarpimi(m1, m2):
-  # İki matrisi çarpıp sonuç matrisini döndüren fonksiyon
+  # Ä°ki matrisi Ã§arpÄ±p sonuÃ§ matrisini dÃ¶ndÃ¼ren fonksiyon
   r, m = [], []
   for i in range(len(m1)):
     for j in range(len(m2[0])):
@@ -28,7 +28,7 @@ def matrisCarpimi(m1, m2):
   return m
 
 def denklemSistemiCoz(m1,m2):
-  # Denklem sistemi sonucunu dizi döndüren fonksiyon
+  # Denklem sistemi sonucunu dizi dÃ¶ndÃ¼ren fonksiyon
   n = len(m1)
   idizi = list(range(n))
   for i in range(n):
@@ -44,10 +44,10 @@ def denklemSistemiCoz(m1,m2):
   return matristenDiziye(m2)
 
 def nDerecedenPolinomaYakinlastir(m, veri):
-  # Veri kümesindeki verileri n. dereceden polinoma yakınlaştırıp
-  # a0,a1,a2,..,an katsayılarını ve hata değerlerini döndüren fonksiyon
+  # Veri kÃ¼mesindeki verileri n. dereceden polinoma yakÄ±nlaÅŸtÄ±rÄ±p
+  # a0,a1,a2,..,an katsayÄ±larÄ±nÄ± ve hata deÄŸerlerini dÃ¶ndÃ¼ren fonksiyon
 
-  # xi ussu toplam ve xi ussu yi toplamı hesapla
+  # xi ussu toplam ve xi ussu yi toplamÄ± hesapla
   # xiussuToplam -> [toplam(xi), toplam(xi^2), ..., toplam(xi^2m)]
   # xiussuyiToplam -> [toplam(xi^0*yi), toplam(xi^1*yi), ..., toplam(xi^m*yi)]
   n = len(veri)
@@ -61,9 +61,9 @@ def nDerecedenPolinomaYakinlastir(m, veri):
         xiussuyiToplam.append([0])
       xiussuyiToplam[k][0] += (i + 1) ** k * veri[i]
       
-  # denklem sistemini oluştur
+  # denklem sistemini oluÅŸtur
   # n + toplam(xi) + toplam(xi^2) + ... + toplam(xi^m)
-  # toplam(xi) + toplam(xi^2) + ... + toplam(xi^m+1) şeklinde
+  # toplam(xi) + toplam(xi^2) + ... + toplam(xi^m+1) ÅŸeklinde
   a = [[]]
   altSinir = 0
   ustSinir = m + 1
@@ -90,8 +90,8 @@ def nDerecedenPolinomaYakinlastir(m, veri):
   yortalama = ytoplam / n
 
   # hata hesapla
-  # sr -> Hataların karelerinin toplamı
-  # r -> Korelasyon katsayısı -> r^2
+  # sr -> HatalarÄ±n karelerinin toplamÄ±
+  # r -> Korelasyon katsayÄ±sÄ± -> r^2
   # syx -> Standart tahmini hata
   korelasyon = []
   toplamHata = []
@@ -105,13 +105,13 @@ def nDerecedenPolinomaYakinlastir(m, veri):
     sr += (veri[i] - b) ** 2
     st += (veri[i] - yortalama) ** 2
   r = ((st - sr) / st)
-  syx = (sr / (n - (m + 1))) ** (1 / 2) # Veri sayısı m + 1 e eşit olursa 0 a bölme hatası çıkar
+  syx = (sr / (n - (m + 1))) ** (1 / 2) # Veri sayÄ±sÄ± m + 1 e eÅŸit olursa 0 a bÃ¶lme hatasÄ± Ã§Ä±kar
   toplamHata.append(sr)
   korelasyon.append(r)
   stahminiHata.append(syx)
 
   """
-  # Gerçek veriler ile tahmin edilen verileri listele
+  # GerÃ§ek veriler ile tahmin edilen verileri listele
   for i in range(n):
     tahmin = 0
     for j in range(0, len(katsayilar)):
@@ -128,20 +128,20 @@ def birdenAltinciDereceyeKadar(dosya):
     f = open(dosya, "r")
     for i in f.read().split():
       veri.append(float(i))
-    # 8 den az veri olması standart tahmin hata hesaplamasını (sr/n-(m+1)) 0 a bölme hatasına götürüyor.
+    # 8 den az veri olmasÄ± standart tahmin hata hesaplamasÄ±nÄ± (sr/n-(m+1)) 0 a bÃ¶lme hatasÄ±na gÃ¶tÃ¼rÃ¼yor.
     if(len(veri) < 10):
-      print("Lütfen en az 8 adet veri giriniz")
+      print("LÃ¼tfen en az 8 adet veri giriniz")
   except IOError:
-    print("Veriler bulunamıyor. Verilerin bulunduğu .txt doyasını kontrol edin.")
+    print("Veriler bulunamÄ±yor. Verilerin bulunduÄŸu .txt doyasÄ±nÄ± kontrol edin.")
   finally:
     f.close()
 
-  # Tüm veri
-  r = [] # Korelasyon değerleri
-  h = [] # Hata değerleri
-  s = [] # Standart hata değerleri
+  # TÃ¼m veri
+  r = [] # Korelasyon deÄŸerleri
+  h = [] # Hata deÄŸerleri
+  s = [] # Standart hata deÄŸerleri
   f = open("sonuc.txt", "w+")
-  f.write("Tüm veri için\n")
+  f.write("TÃ¼m veri iÃ§in\n")
   f.write("-------------\n\n")
   for i in range(1, 7):
     if(i != 1):
@@ -154,12 +154,12 @@ def birdenAltinciDereceyeKadar(dosya):
     h.append(tumSonuc[2][0])
     s.append(tumSonuc[3][0])
     f.write("R kare (r^2)= " + str(tumSonuc[1][0]) + "\n")
-    f.write("Korelasyon değeri (r)= " + str(tumSonuc[1][0]**(1/2)) + "\n")
-    f.write("Hataların karelerinin toplamı (Sr)= " + str(tumSonuc[2][0]) + "\n")
-    f.write("Standart tahmini hata değeri (Sy/x)= " + str(tumSonuc[3][0]) + "\n")
-  f.write("\n\nTüm veri için en yüksek korelasyon katsayısına sahip derece = " + str(r.index(max(r)) + 1) + "\n")
-  f.write("Tüm veri için en düşük hataların karelerinin toplamına sahip derece = " + str(h.index(min(h)) + 1) + "\n")
-  f.write("Tüm veri için en düşük standart tahmin hata değerine sahip derece = " + str(s.index(min(s)) + 1))
+    f.write("Korelasyon deÄŸeri (r)= " + str(tumSonuc[1][0]**(1/2)) + "\n")
+    f.write("HatalarÄ±n karelerinin toplamÄ± (Sr)= " + str(tumSonuc[2][0]) + "\n")
+    f.write("Standart tahmini hata deÄŸeri (Sy/x)= " + str(tumSonuc[3][0]) + "\n")
+  f.write("\n\nTÃ¼m veri iÃ§in en yÃ¼ksek korelasyon katsayÄ±sÄ±na sahip derece = " + str(r.index(max(r)) + 1) + "\n")
+  f.write("TÃ¼m veri iÃ§in en dÃ¼ÅŸÃ¼k hatalarÄ±n karelerinin toplamÄ±na sahip derece = " + str(h.index(min(h)) + 1) + "\n")
+  f.write("TÃ¼m veri iÃ§in en dÃ¼ÅŸÃ¼k standart tahmin hata deÄŸerine sahip derece = " + str(s.index(min(s)) + 1))
   f.write("\n")
   #------------------------
 
@@ -167,10 +167,10 @@ def birdenAltinciDereceyeKadar(dosya):
   if(len(veri) > 10):
     sinir = len(veri) - 9
     for i in range(sinir):
-      r = [] # Korelasyon değerleri
-      h = [] # Hata değerleri
-      s = [] # Standart hata değerleri
-      f.write("\n" + str(i + 1) + "-" + str(i + 10) + " satırlar\n")
+      r = [] # Korelasyon deÄŸerleri
+      h = [] # Hata deÄŸerleri
+      s = [] # Standart hata deÄŸerleri
+      f.write("\n" + str(i + 1) + "-" + str(i + 10) + " satÄ±rlar\n")
       f.write("-------------\n")
       for j in range(1, 7):
         onluSonuc = nDerecedenPolinomaYakinlastir(j, veri[i:i + 10])
@@ -181,12 +181,12 @@ def birdenAltinciDereceyeKadar(dosya):
         h.append(onluSonuc[2])
         s.append(onluSonuc[3])
         f.write("R kare (r^2)= " + str(onluSonuc[1][0]) + "\n")
-        f.write("Korelasyon değeri (r)= " + str(onluSonuc[1][0]**(1/2)) + "\n")
-        f.write("Hataların karelerinin toplamı (Sr)= " + str(onluSonuc[2][0]) + "\n")
-        f.write("Standart tahmini hata değeri (Sy/x)= " + str(onluSonuc[3][0]) + "\n")
-      f.write("\n\n" + str(i + 1) + "-" + str(i + 10) + " satırlar için en yüksek korelasyon katsayısına sahip derece = " + str(r.index(max(r)) + 1) + "\n")
-      f.write(str(i + 1) + "-" + str(i + 10) + " satırlar için en düşük hataların karelerinin toplamına sahip derece = " + str(h.index(min(h)) + 1) + "\n")
-      f.write(str(i + 1) + "-" + str(i + 10) + " satırlar için en düşük standart tahmin hata değerine sahip derece = " + str(s.index(min(s)) + 1) + "\n\n")
+        f.write("Korelasyon deÄŸeri (r)= " + str(onluSonuc[1][0]**(1/2)) + "\n")
+        f.write("HatalarÄ±n karelerinin toplamÄ± (Sr)= " + str(onluSonuc[2][0]) + "\n")
+        f.write("Standart tahmini hata deÄŸeri (Sy/x)= " + str(onluSonuc[3][0]) + "\n")
+      f.write("\n\n" + str(i + 1) + "-" + str(i + 10) + " satÄ±rlar iÃ§in en yÃ¼ksek korelasyon katsayÄ±sÄ±na sahip derece = " + str(r.index(max(r)) + 1) + "\n")
+      f.write(str(i + 1) + "-" + str(i + 10) + " satÄ±rlar iÃ§in en dÃ¼ÅŸÃ¼k hatalarÄ±n karelerinin toplamÄ±na sahip derece = " + str(h.index(min(h)) + 1) + "\n")
+      f.write(str(i + 1) + "-" + str(i + 10) + " satÄ±rlar iÃ§in en dÃ¼ÅŸÃ¼k standart tahmin hata deÄŸerine sahip derece = " + str(s.index(min(s)) + 1) + "\n\n")
   f.close()
 
 birdenAltinciDereceyeKadar("veriler.txt")
