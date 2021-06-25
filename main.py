@@ -1,4 +1,4 @@
-# Birhan Berk Oktay - 170401075
+# Birhan Berk Oktay
 
 # Bu Python kodu birdenAltinciDereceyeKadar isimli fonksiyonun çağırılmasıyla
 # parametre olarak verilen dosyadaki verilerin tamamını ve her 10 lu veri grubu
