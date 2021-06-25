@@ -10,3 +10,15 @@
 * Elde edilen katsayıları sonuc.txt dosyasına yazar.
 * Her polinom için elde edilen değer ile gerçek değer arasındaki hata hesaplanır.
 * Her 10'lu veri grupları için tekrar işlem yaparak bütün veri kümesi için hangi 10'lu veri grubunun hangi dereceden polinoma uygun olduğunu belirtir.
+
+## Çıktılar
+
+Noktalar = Veriler.txt deki 82 adet veri
+
+Kırmızı eğri = Verilerin 3. dereceden polinoma yakınlaştırılması ile oluşturulmuştur
+
+![3.dereceden](3.dereceden.jpeg)
+
+![6. dereceden](6. dereceden.jpg)
+
+![9. dereceden](9. dereceden.jpeg)
