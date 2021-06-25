@@ -13,7 +13,7 @@
 
 ## Çıktılar
 
-Noktalar = Veriler.txt deki 82 adet veri
+Noktalar = Veriler.txt deki veriler
 
 ![3.dereceden](3.dereceden.jpeg)
 
